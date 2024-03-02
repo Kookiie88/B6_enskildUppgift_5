@@ -1,0 +1,11 @@
+.hero {
+  margin: 0;
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+
+  &__image {
+    width: 70%;
+    border-radius: 5px;
+  }
+}
