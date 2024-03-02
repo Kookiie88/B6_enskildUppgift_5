@@ -411,6 +411,39 @@ body {
   margin-top: 6vh;
 }
 
+.outerContainer {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-container {
+  max-width: 650px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #404040;
+  color: #ffffff;
+  border-radius: 25px;
+  margin: 100px auto;
+}
+.custom-container-login {
+  min-height: 600px;
+}
+.custom-container-signup {
+  min-height: 800px;
+}
+.custom-container .btn-primary {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: #800020;
+}
+.custom-container .btn-primary:hover {
+  background-color: #d41645;
+}
+
 .news {
   background-color: #404040;
   display: flex;

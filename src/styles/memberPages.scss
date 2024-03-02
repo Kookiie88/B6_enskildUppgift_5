@@ -1,0 +1,36 @@
+.outerContainer {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-container {
+  max-width: 650px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $colorTwo;
+  color: $colorFive;
+  border-radius: 25px;
+  margin: 100px auto;
+
+  &-login {
+    min-height: 600px;
+  }
+
+  &-signup {
+    min-height: 800px;
+  }
+
+  & .btn-primary {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: #800020;
+  }
+
+  & .btn-primary:hover {
+    background-color: #d41645;
+  }
+}
