@@ -18,7 +18,7 @@ document.getElementById("login").addEventListener("click", function (event) {
   console.log(user);
   console.log(formData);
   if (user !== undefined) {
-    window.location.href = "/src/profile.html";
+    window.location.href = "profile.html";
   } else {
     document.getElementById("error").textContent = "Fel email eller lösenord";
   }
