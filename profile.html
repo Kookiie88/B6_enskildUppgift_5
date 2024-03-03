@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../dist/output.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="../main.css" />
-    <script src="./scripts/menu.js" defer></script>
+    <link rel="stylesheet" href="./dist/output.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="./src/scripts/menu.js" defer></script>
+    <script src="./src/scripts/profile.js" type="module" defer></script>
+    <script src="./src/scripts/loadUser.js" type="module" defer></script>
     <title>Tailwind</title>
 </head>
-<body class="h-full flex flex-col">
+<body>
   <header class="header">
     <div class="header__container">
       <a href="index.html"
@@ -42,31 +44,147 @@
       </div>
     </nav>
   </header>
-    <main class="flex flex-1 bg-stone-800">
+    <main class="flex bg-stone-800 min-h-[70vh]">
         <aside class="flex-col bg-stone-700 text-white py-3 px-2 min-w-[200px] w-[200px]">
-            <nav class="my-8">
-                <h2>
-                    Dashboard
+            <nav class="my-2">
+                <div class="flex flex-col items-center">
+                    <img src="./assets/profile-pic.jpeg" alt="Profile Picture" class="rounded-full w-24 h-24 object-cover mt-4 mb-0"/>
+                    <span class="rounded text-stone-200 text-xl text-center hover:bg-black/50 hover:cursor-pointer w-[28px]">&#9881;</span>
+                </div>
+                <h2 class="text-center mt-4 profileName">
+                    William Vesterberg
                 </h2>
                 <ul class="my-4">
-                    <li class="py-2 px-3 my-1 transition-colors rounded hover:bg-black/25 hover:cursor-pointer">
+                    <li id="general" class="py-2 px-3 my-1 transition-colors rounded bg-black/25 hover:bg-black/25 hover:cursor-pointer">
                         <p>
-                            Profile
+                            General
                         </p>
                     </li>
-                    <li class="py-2 px-3 my-1 transition-colors rounded hover:bg-black/25 hover:cursor-pointer">
+                    <li id="settings" class="py-2 px-3 my-1 transition-colors rounded hover:bg-black/25 hover:cursor-pointer">
                         <p>
                             Settings
                         </p>
                     </li>
-                    <li class="py-2 px-3 my-1 transition-colors rounded hover:bg-black/25 hover:cursor-pointer">
+                    <li id="member" class="py-2 px-3 my-1 transition-colors rounded hover:bg-black/25 hover:cursor-pointer">
+                      <p>
+                          Membership
+                      </a>
+                  </li>
+                    <li id="reciepts" class="py-2 px-3 my-1 transition-colors rounded hover:bg-black/25 hover:cursor-pointer">
                         <p>
                             Reciepts
                         </a>
                     </li>
+                    
                 </ul>
             </nav>
         </aside>
+        <section class="w-full">
+          <div id="general-section" class="ml-16 mt-14">
+            <div clas="ml-5">
+              <h1 class="w-full p-3 my-2 text-3xl text-white profileName">William Vesterberg</h1>
+            </div>
+            <div class="flex p-3">
+              <p class="text-2xl text-white font-bold">Email:</p>
+              <p class="ml-5 text-2xl text-white profileEmail">William.vesterberg@gmail.com</p>
+            </div>
+            <div class="flex p-3">
+              <p class="text-2xl text-white font-bold">Number:</p>
+              <p class="ml-5 text-2xl text-white profileNumber">+46702361366</p>
+            </div>
+            <div class="flex p-3">
+              <p class="text-2xl text-white font-bold">Member since:</p>
+              <p class="ml-5 text-2xl text-white">26/02-24</p>
+            </div>
+            <div class="flex p-3">
+              <p class="text-2xl text-white font-bold">Membership points:</p>
+              <p class="ml-5 text-2xl text-white">XXXX</p>
+            </div>
+            <div class="flex p-3 my-6">
+              <p class="text-2xl text-white font-bold">Latest booking:</p>
+              <p class="ml-5 text-2xl text-white">[movie name]</p>
+            </div>
+          </div>
+          <div id="settings-section" class="ml-16 mt-14 hidden">
+            <div clas="ml-5">
+              <h1 class="w-full p-3 my-2 text-3xl text-white profileName">William Vesterberg</h1>
+            </div>
+            <div class="flex p-3">
+              <span class="rounded text-stone-200 text-2xl text-center mr-3 hover:bg-black/50 hover:cursor-pointer w-[32px]">&#9881;</span>
+              <p class="text-2xl text-white font-bold">Email:</p>
+              <p class="ml-5 text-2xl text-white profileEmail">William.vesterberg@gmail.com</p>
+            </div>
+            <div class="flex p-3">
+              <span class="rounded text-stone-200 text-2xl text-center mr-3 hover:bg-black/50 hover:cursor-pointer w-[32px]">&#9881;</span>
+              <p class="text-2xl text-white font-bold">Number:</p>
+              <p class="ml-5 text-2xl text-white profileNumber">+46702361366</p>
+            </div>
+            <div class="flex p-3">
+              <span class="rounded text-stone-200 text-2xl text-center mr-3 hover:bg-black/50 hover:cursor-pointer w-[32px]">&#9881;</span>
+              <p class="text-2xl text-white font-bold">Payment method:</p>
+              <p class="ml-5 text-2xl text-white">Credit Card</p>
+            </div>
+            <div class="flex p-3">
+              <span class="rounded text-stone-200 text-2xl text-center mr-3 hover:bg-black/50 hover:cursor-pointer w-[32px]">&#9881;</span>
+              <p class="text-2xl text-white font-bold">Password</p>
+              <p class="ml-5 text-2xl text-white">*******</p>
+            </div>
+          </div>
+          <div id="member-section" class="ml-16 mt-14 hidden">
+            <div clas="ml-5">
+              <h1 class="w-full p-3 my-2 text-3xl text-white profileName">William Vesterberg</h1>
+            </div>
+            <div class="flex p-3 my-6">
+              <p class="text-2xl text-white font-bold">Membershipnmumber:</p>
+              <p class="ml-5 text-2xl text-white">165429876109</p>
+            </div>
+            <div class="flex p-3 my-6">
+              <p class="text-2xl text-white font-bold">Available points:</p>
+              <p class="ml-5 text-2xl text-white">500</p>
+            </div>
+            <div class="flex p-3 my-6">
+              <p class="text-2xl text-white font-bold">Total points earned:</p>
+              <p class="ml-5 text-2xl text-white">4500</p>
+            </div>  
+            <div class="flex p-3 my-6">
+              <p class="text-2xl text-white font-bold">Membership type:</p>
+              <p class="ml-5 text-2xl text-white">Gold</p>
+            </div>  
+          </div>
+          <div id="reciepts-section" class="ml-16 mt-14 hidden">
+            <div clas="ml-5">
+              <h1 class="w-full p-3 my-2 text-3xl text-white profileName">William Vesterberg</h1>
+            </div>
+            <div class="flex flex-col p-3 my-6">
+              <p class="text-2xl text-white font-bold">Latest bookings:</p>
+              <div>
+                <p class="ml-5 my-4 text-2xl text-white">Lion king</p>
+                <p class="ml-5 my-4 text-xl text-white">Booking number:</p>
+                <p class="ml-5 my-4 text-xl text-white">Price:</p>
+              </div>
+              <div>
+                <p class="ml-5 my-4 text-2xl text-white">The shawshank redemption</p>
+                <p class="ml-5 my-4 text-xl text-white">Booking number:</p>
+                <p class="ml-5 my-4 text-xl text-white">Price:</p>
+              </div>
+              <div>
+                <p class="ml-5 my-4 text-2xl text-white">Interstellar</p>
+                <p class="ml-5 my-4 text-xl text-white">Booking number:</p>
+                <p class="ml-5 my-4 text-xl text-white">Price:</p>
+              </div>
+              <div>
+                <p class="ml-5 my-4 text-2xl text-white">Demon Slayer</p>
+                <p class="ml-5 my-4 text-xl text-white">Booking number:</p>
+                <p class="ml-5 my-4 text-xl text-white">Price:</p>
+              </div>
+              <div>
+                <p class="ml-5 my-4 text-2xl text-white">Hundraåringen</p>
+                <p class="ml-5 my-4 text-xl text-white">Booking number:</p>
+                <p class="ml-5 my-4 text-xl text-white">Price:</p>
+              </div>
+            </div>
+          </div>    
+        </section>
     </main>
     <footer class="footer">
         <div class="footer__container">
