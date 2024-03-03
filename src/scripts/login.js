@@ -1,22 +1,24 @@
+import { fetchUserInformation } from "./profile.js";
+
+
 document.getElementById("login").addEventListener("click", function (event) {
   event.preventDefault();
 
   const emailLogin = document.getElementById("emailLogin").value;
   const passwordLogin = document.getElementById("passwordLogin").value;
 
-  let formData = {
+  let loginData = {
     email: emailLogin,
     password: passwordLogin,
   };
 
+  localStorage.setItem('loginData', JSON.stringify(loginData));
+
   let existingData = JSON.parse(localStorage.getItem("formData")) || [];
 
   let user = existingData.find((user) => {
-    return user.email === formData.email && user.password === formData.password;
+    return user.email === loginData.email && user.password === loginData.password;
   });
-  console.log(existingData);
-  console.log(user);
-  console.log(formData);
   if (user !== undefined) {
     window.location.href = "profile.html";
   } else {
