@@ -1,6 +1,6 @@
 //Fetch data from the specified file using the fetchData function
-const data = await fetchData("/src/scripts/movies.json").catch((error) =>
-  console.log(error.message)
+const data = await fetchData("./src/scripts/movies.json").catch((error) =>
+  console.log(error.message),
 );
 
 //function to fetch data from specific file using fetch API
@@ -12,7 +12,9 @@ async function fetchData(file) {
   if (response.ok) {
     return await response.json();
   } else {
-    throw new Error(`Something went wrong with the request. Error code: ${response.status}`);
+    throw new Error(
+      `Something went wrong with the request. Error code: ${response.status}`,
+    );
   }
 }
 //checking the data
@@ -156,8 +158,12 @@ document.querySelector(".popular").addEventListener("click", () => {
   const cards = document.querySelectorAll(".movie-card");
 
   const sortedCards = Array.from(cards).sort((a, b) => {
-    const ratingA = parseFloat(a.querySelector(".movie-card__rating").textContent);
-    const ratingB = parseFloat(b.querySelector(".movie-card__rating").textContent);
+    const ratingA = parseFloat(
+      a.querySelector(".movie-card__rating").textContent,
+    );
+    const ratingB = parseFloat(
+      b.querySelector(".movie-card__rating").textContent,
+    );
 
     return ratingB - ratingA; // Sort in descending order
   });

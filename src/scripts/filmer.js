@@ -1,6 +1,8 @@
 const fullApiJson = [];
 getApi()
-  .then((data) => data.movies.forEach((challenge) => fullApiJson.push(challenge)))
+  .then((data) =>
+    data.movies.forEach((challenge) => fullApiJson.push(challenge)),
+  )
   .then(randomHeroImage)
   .catch((err) => {
     console.log("errors: " + err.message);
@@ -9,7 +11,7 @@ getApi()
 //Fetch Challange API
 async function getApi() {
   if (fullApiJson.length == 0) {
-    const url = "/src/scripts/movies.json";
+    const url = "./src/scripts/movies.json";
     const res = await fetch(url);
     const data = await res.json();
     return data;
