@@ -1,5 +1,5 @@
 async function fetchInformationAPI() {
-  const jsonUrl = "/src/scripts/informationFeed.json";
+  const jsonUrl = "informationFeed.json";
   const response = await fetch(jsonUrl);
   const data = await response.json();
 
